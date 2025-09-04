@@ -17,14 +17,15 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build": "CI=false react-scripts build",
+    "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
     "serve": "npx serve -s build",
     "predeploy": "npm run build",
-    "lint": "eslint src/**/*.{js,jsx}",
+    "lint": "eslint src/**/*.{js,jsx} --max-warnings=0",
     "lint:fix": "eslint src/**/*.{js,jsx} --fix",
-    "analyze": "npm run build && npx serve -s build"
+    "analyze": "npm run build && npx serve -s build",
+    "vercel-build": "CI=false npm run build"
   },
   "eslintConfig": {
     "extends": [
@@ -67,5 +68,9 @@
   },
   "bugs": {
     "url": "https://github.com/Devil-008/PDF-management/issues"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
   }
 }

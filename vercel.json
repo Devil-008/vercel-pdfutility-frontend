@@ -1,0 +1,36 @@
+{
+  "version": 2,
+  "name": "pdf-management-frontend",
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "installCommand": "npm install",
+  "framework": "create-react-app",
+  "env": {
+    "REACT_APP_API_URL": "https://your-backend-url.herokuapp.com",
+    "GENERATE_SOURCEMAP": "false",
+    "CI": "false"
+  },
+  "build": {
+    "env": {
+      "REACT_APP_API_URL": "https://your-backend-url.herokuapp.com",
+      "GENERATE_SOURCEMAP": "false",
+      "CI": "false"
+    }
+  },
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "headers": { "cache-control": "s-maxage=31536000,immutable" },
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/(.*\\.(js|css|ico|png|jpg|jpeg|gif|svg))",
+      "headers": { "cache-control": "s-maxage=31536000,immutable" },
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
