@@ -4,7 +4,7 @@
   "buildCommand": "npm run build",
   "outputDirectory": "build",
   "installCommand": "npm install",
-  "framework": "create-react-app",
+  "framework": null,
   "env": {
     "REACT_APP_API_URL": "https://your-backend-url.herokuapp.com",
     "GENERATE_SOURCEMAP": "false",
@@ -17,6 +17,7 @@
       "CI": "false"
     }
   },
+  "functions": {},
   "routes": [
     {
       "src": "/static/(.*)",
@@ -24,7 +25,7 @@
       "dest": "/static/$1"
     },
     {
-      "src": "/(.*\\.(js|css|ico|png|jpg|jpeg|gif|svg))",
+      "src": "/(.*\\.(js|css|ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot))",
       "headers": { "cache-control": "s-maxage=31536000,immutable" },
       "dest": "/$1"
     },
